@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animação de Pista</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    /* Cenário em tela cheia com repetição horizontal */
+    .viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('bg.jpg');
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+      animation: moveBg 12s linear infinite;
+    }
+
+    /* Animação contínua e fluida do cenário */
+    @keyframes moveBg {
+      from {
+        background-position-x: 0;
+      }
+      to {
+        background-position-x: -1190.7vh; /* Deslocamento proporcional à imagem */
+      }
+    }
+
+    /* Estilo padrão para os veículos */
+    .vehicle {
+      position: absolute;
+      bottom: 2vh;
+      height: 18vh;
+      width: auto;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Posicionamento do carro no meio da tela */
+    .car {
+      left: calc(50% - 400px);
+    }
+
+    /* Posicionamento da moto ao lado do carro */
+    .motobike {
+      left: calc(50% + 20px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="viewport">
+    <img src="car.png" alt="Carro" class="vehicle car">
+    <img src="motobike.png" alt="Moto" class="vehicle motobike">
+  </div>
+
+</body>
+</html>
